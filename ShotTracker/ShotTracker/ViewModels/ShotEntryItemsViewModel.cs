@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ShotTracker.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ShotEntryItemsViewModel : BaseViewModel
     {
         private ShotEntryItem _selectedItem;
 
@@ -17,7 +17,7 @@ namespace ShotTracker.ViewModels
         public Command AddItemCommand { get; }
         public Command<ShotEntryItem> ItemTapped { get; }
 
-        public ItemsViewModel()
+        public ShotEntryItemsViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<ShotEntryItem>();
@@ -78,7 +78,7 @@ namespace ShotTracker.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ID)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ShotEntryItemDetailViewModel.ID)}={item.Id}");
         }
     }
 }

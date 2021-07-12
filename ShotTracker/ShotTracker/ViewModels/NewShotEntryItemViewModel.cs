@@ -7,13 +7,13 @@ using Xamarin.Forms;
 
 namespace ShotTracker.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NewShotEntryItemViewModel : BaseViewModel
     {
         private int _makes;
         private int _misses;
         private ShotLocation _location;
 
-        public NewItemViewModel()
+        public NewShotEntryItemViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);

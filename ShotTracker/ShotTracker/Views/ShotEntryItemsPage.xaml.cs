@@ -14,13 +14,13 @@ namespace ShotTracker.Views
 {
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel _viewModel;
+        ShotEntryItemsViewModel _viewModel;
 
         public ItemsPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
+            BindingContext = _viewModel = new ShotEntryItemsViewModel();
         }
 
         protected override void OnAppearing()

@@ -7,7 +7,7 @@ using Xamarin.Forms;
 namespace ShotTracker.ViewModels
 {
     [QueryProperty(nameof(ID), nameof(ID))]
-    public class ItemDetailViewModel : BaseViewModel
+    public class ShotEntryItemDetailViewModel : BaseViewModel
     {
         private string _itemId;
         private int _makes;
