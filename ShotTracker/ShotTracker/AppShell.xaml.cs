@@ -11,6 +11,7 @@ namespace ShotTracker
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(ShotEntryItemsPage), typeof(ShotEntryItemsPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }

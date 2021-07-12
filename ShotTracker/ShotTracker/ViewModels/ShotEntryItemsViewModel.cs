@@ -3,56 +3,35 @@ using ShotTracker.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ShotTracker.ViewModels
 {
+    [QueryProperty(nameof(Location), nameof(Location))]
     public class ShotEntryItemsViewModel : BaseViewModel
     {
         private ShotEntryItem _selectedItem;
+        private string _location;
 
-        public ObservableCollection<ShotEntryItem> Items { get; }
-        public Command LoadItemsCommand { get; }
+        public ObservableCollection<ShotEntryItem> Items { get; set; }
+        public string Location
+        {
+            get => _location;
+            set
+            {
+                _location = value;
+                Items = new ObservableCollection<ShotEntryItem>(DataStore.GetItemsAsync(true).Result.Where(o => o.Location == (ShotLocation)int.Parse(_location)));
+                OnPropertyChanged(nameof(Items));
+            }
+        }
         public Command AddItemCommand { get; }
         public Command<ShotEntryItem> ItemTapped { get; }
-
-        public ShotEntryItemsViewModel()
-        {
-            Title = "Browse";
-            Items = new ObservableCollection<ShotEntryItem>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            ItemTapped = new Command<ShotEntryItem>(OnItemSelected);
-
-            AddItemCommand = new Command(OnAddItem);
-        }
-
-        async Task ExecuteLoadItemsCommand()
-        {
-            IsBusy = true;
-
-            try
-            {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
+        
         public void OnAppearing()
         {
+            Title = "Shot Entry";
             IsBusy = true;
             SelectedItem = null;
         }
