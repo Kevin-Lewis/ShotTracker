@@ -3,20 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:ShotTracker.ViewModels"
              xmlns:models="clr-namespace:ShotTracker.Models"
-             x:Class="ShotTracker.Views.ShotEntryItemsPage"
+             x:Class="ShotTracker.Views.ShotEntriesPage"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage"
-             x:DataType="viewmodels:ShotEntryItemsViewModel"
+             x:DataType="viewmodels:ShotEntriesViewModel"
              >
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+        <ToolbarItem Text="Add" Command="{Binding AddShotEntryCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
         <DatePicker HorizontalOptions="CenterAndExpand" WidthRequest="100"></DatePicker>
-        <ListView ItemsSource="{Binding Items}">
+        <ListView ItemsSource="{Binding ShotEntries}" SelectedItem="{Binding SelectedShotEntry, Mode=TwoWay}">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:ShotEntryItem">
+                <DataTemplate x:DataType="models:ShotEntry">
                     <TextCell Text="{Binding TextResult}" Detail="{Binding Date}" />
                 </DataTemplate>
             </ListView.ItemTemplate>

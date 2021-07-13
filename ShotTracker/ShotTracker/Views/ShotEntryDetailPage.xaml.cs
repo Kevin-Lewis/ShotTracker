@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace ShotTracker.Views
 {
-    public partial class ItemDetailPage : ContentPage
+    public partial class ShotEntryDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public ShotEntryDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ShotEntryItemDetailViewModel();
+            BindingContext = new ShotEntryDetailViewModel();
         }
     }
 }

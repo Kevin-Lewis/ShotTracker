@@ -12,14 +12,14 @@ using Xamarin.Forms.Xaml;
 
 namespace ShotTracker.Views
 {
-    public partial class ShotEntryItemsPage : ContentPage
+    public partial class ShotEntriesPage : ContentPage
     {
-        ShotEntryItemsViewModel _viewModel;
+        ShotEntriesViewModel _viewModel;
 
-        public ShotEntryItemsPage()
+        public ShotEntriesPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new ShotEntryItemsViewModel();
+            BindingContext = _viewModel = new ShotEntriesViewModel();
         }
 
         protected override void OnAppearing()

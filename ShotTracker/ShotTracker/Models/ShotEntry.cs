@@ -2,7 +2,7 @@
 
 namespace ShotTracker.Models
 {
-    public class ShotEntryItem
+    public class ShotEntry
     {
         public string Id { get; set; }
         public int Makes { get; set; }

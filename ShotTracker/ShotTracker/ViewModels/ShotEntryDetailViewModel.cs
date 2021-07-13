@@ -7,12 +7,13 @@ using Xamarin.Forms;
 namespace ShotTracker.ViewModels
 {
     [QueryProperty(nameof(ID), nameof(ID))]
-    public class ShotEntryItemDetailViewModel : BaseViewModel
+    public class ShotEntryDetailViewModel : BaseViewModel
     {
-        private string _itemId;
+        private string _shotEntryId;
         private int _makes;
         private int _misses;
         private ShotLocation _location;
+        private DateTime _date;
 
         public string Id { get; set; }
 
@@ -38,25 +39,31 @@ namespace ShotTracker.ViewModels
         {
             get
             {
-                return _itemId;
+                return _shotEntryId;
             }
             set
             {
-                _itemId = value;
+                _shotEntryId = value;
                 LoadItemId(value);
             }
+        }
+
+        public DateTime Date
+        {
+            get => _date;
+            set => SetProperty(ref _date, value);
         }
 
         public async void LoadItemId(string itemId)
         {
             try
             {
-                var item = await DataStore.GetItemAsync(_itemId);
+                var item = await DataStore.GetShotEntryAsync(_shotEntryId);
                 Id = item.Id;
                 Makes = item.Makes;
                 Misses = item.Misses;
-
                 Location = item.Location;
+                Date = item.Date;
             }
             catch (Exception)
             {

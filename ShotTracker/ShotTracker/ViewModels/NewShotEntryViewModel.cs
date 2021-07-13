@@ -7,13 +7,13 @@ using Xamarin.Forms;
 
 namespace ShotTracker.ViewModels
 {
-    public class NewShotEntryItemViewModel : BaseViewModel
+    public class NewShotEntryViewModel : BaseViewModel
     {
         private int _makes;
         private int _misses;
         private ShotLocation _location;
 
-        public NewShotEntryItemViewModel()
+        public NewShotEntryViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
@@ -55,17 +55,16 @@ namespace ShotTracker.ViewModels
 
         private async void OnSave()
         {
-            ShotEntryItem newItem = new ShotEntryItem()
+            ShotEntry newItem = new ShotEntry()
             {
                 Id = Guid.NewGuid().ToString(),
                 Makes = Makes,
                 Misses = Misses,
-                Location = Location
+                Location = Location,
+                Date = DateTime.Now
             };
 
-            await DataStore.AddItemAsync(newItem);
-
-            // This will pop the current page off the navigation stack
+            await DataStore.AddShotEntryAsync(newItem);
             await Shell.Current.GoToAsync("..");
         }
     }

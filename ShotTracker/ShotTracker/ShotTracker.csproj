@@ -14,11 +14,14 @@
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ShotEntryItemsPage.xaml.cs">
-      <DependentUpon>ShotEntryItemsPage.xaml</DependentUpon>
+    <Compile Update="Views\NewShotEntryPage.xaml.cs">
+      <DependentUpon>NewShotEntryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ShotEntryItemDetailPage.xaml.cs">
-      <DependentUpon>ShotEntryItemDetailPage.xaml</DependentUpon>
+    <Compile Update="Views\ShotEntriesPage.xaml.cs">
+      <DependentUpon>ShotEntriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ShotEntryDetailPage.xaml.cs">
+      <DependentUpon>ShotEntryDetailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
