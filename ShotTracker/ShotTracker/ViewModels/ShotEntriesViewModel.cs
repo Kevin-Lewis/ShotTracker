@@ -12,15 +12,25 @@ namespace ShotTracker.ViewModels
     [QueryProperty(nameof(Location), nameof(Location))]
     public class ShotEntriesViewModel : BaseViewModel
     {
+        private ObservableCollection<ShotEntry> _shotEntries;
         private ShotEntry _selectedShotEntry;
         private string _location;
 
         public ShotEntriesViewModel()
         {
             AddShotEntryCommand = new Command(OnAddShotEntry);
+            ShotEntries = new ObservableCollection<ShotEntry>();
         }
 
-        public ObservableCollection<ShotEntry> ShotEntries { get; set; }
+        public ObservableCollection<ShotEntry> ShotEntries
+        {
+            get => _shotEntries;
+            set
+            {
+                _shotEntries = value;
+                OnPropertyChanged(nameof(ShotEntries));
+            }
+        }
         public string Location
         {
             get => _location;
@@ -29,8 +39,7 @@ namespace ShotTracker.ViewModels
                 if (_location != value)
                 {
                     _location = value;
-                    ShotEntries = new ObservableCollection<ShotEntry>(DataStore.GetShotEntriesAsync(true).Result.Where(o => o.Location == (ShotLocation)int.Parse(_location)));
-                    OnPropertyChanged(nameof(ShotEntries));
+                    Task.Run(() => ShotEntries = new ObservableCollection<ShotEntry>(DataStore.GetShotEntriesAsync(true).Result.Where(o => o.Location == (ShotLocation)int.Parse(_location))));                    
                 }               
             }
         }

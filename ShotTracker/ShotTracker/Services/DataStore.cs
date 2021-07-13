@@ -6,31 +6,34 @@ using System.Threading.Tasks;
 
 namespace ShotTracker.Services
 {
-    public class DataStore : IDataStore<ShotEntry>
+    class DataStore : IDataStore<ShotEntry>
     {
-        public Task<bool> AddShotEntryAsync(ShotEntry item)
+        public async Task<bool> AddShotEntryAsync(ShotEntry item)
         {
-            throw new NotImplementedException();
+            await App.Database.SaveShotEntryAsync(item);
+            return await Task.FromResult(true);
         }
 
-        public Task<bool> DeleteShotEntryAsync(string id)
+        public async Task<bool> DeleteShotEntryAsync(ShotEntry item)
         {
-            throw new NotImplementedException();
+            await App.Database.DeleteShotEntryAsync(item);
+            return await Task.FromResult(true);
         }
 
-        public Task<IEnumerable<ShotEntry>> GetShotEntriesAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<ShotEntry>> GetShotEntriesAsync(bool forceRefresh = false)
         {
-            throw new NotImplementedException();
+            return await App.Database.GetShotEntriesAsync();
         }
 
-        public Task<ShotEntry> GetShotEntryAsync(string id)
+        public async Task<ShotEntry> GetShotEntryAsync(string id)
         {
-            throw new NotImplementedException();
+            return await App.Database.GetShotEntryAsync(id);
         }
 
-        public Task<bool> UpdateShotEntryAsync(ShotEntry item)
+        public async Task<bool> UpdateShotEntryAsync(ShotEntry item)
         {
-            throw new NotImplementedException();
+            await App.Database.UpdateShotEntryAsync(item);
+            return await Task.FromResult(true);
         }
     }
 }

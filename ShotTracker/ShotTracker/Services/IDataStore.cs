@@ -8,7 +8,7 @@ namespace ShotTracker.Services
     {
         Task<bool> AddShotEntryAsync(T item);
         Task<bool> UpdateShotEntryAsync(T item);
-        Task<bool> DeleteShotEntryAsync(string id);
+        Task<bool> DeleteShotEntryAsync(T item);
         Task<T> GetShotEntryAsync(string id);
         Task<IEnumerable<T>> GetShotEntriesAsync(bool forceRefresh = false);
     }

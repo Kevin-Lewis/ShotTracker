@@ -44,11 +44,9 @@ namespace ShotTracker.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteShotEntryAsync(string id)
+        public async Task<bool> DeleteShotEntryAsync(ShotEntry item)
         {
-            var oldItem = shotEntries.Where((ShotEntry arg) => arg.Id == id).FirstOrDefault();
-            shotEntries.Remove(oldItem);
-
+            shotEntries.Remove(item);
             return await Task.FromResult(true);
         }
 

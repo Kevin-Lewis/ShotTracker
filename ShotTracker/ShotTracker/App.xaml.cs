@@ -1,6 +1,8 @@
-﻿using ShotTracker.Services;
+﻿using ShotTracker.Data;
+using ShotTracker.Services;
 using ShotTracker.Views;
 using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,12 +10,24 @@ namespace ShotTracker
 {
     public partial class App : Application
     {
+        static ShotEntryDatabase database;
+
+        public static ShotEntryDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new ShotEntryDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ShotEntries.db3"));
+                }
+                return database;
+            }
+        }
 
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<DataStore>();
             MainPage = new AppShell();
         }
 
