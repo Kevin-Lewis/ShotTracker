@@ -39,7 +39,7 @@ namespace ShotTracker.ViewModels
 
         public HomeViewModel()
         {
-            Title = "Browse";
+            Title = "Home";
             ShotEntries = new ObservableCollection<ShotEntry>();
             ZonePressedCommand = new Command<ShotLocation>(OnZoneSelected);
 

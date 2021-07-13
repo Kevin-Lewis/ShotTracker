@@ -1,9 +1,11 @@
-﻿using System;
+﻿using SQLite;
+using System;
 
 namespace ShotTracker.Models
 {
     public class ShotEntry
     {
+        [PrimaryKey, AutoIncrement]
         public string Id { get; set; }
         public int Makes { get; set; }
         public int Misses { get; set; }
