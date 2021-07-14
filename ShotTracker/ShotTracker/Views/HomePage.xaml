@@ -31,117 +31,64 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <!-- Right Corner Three -->
-                <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding RightCornerBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding RightCorner}" CornerRadius="35"                    
+                    TextColor="Black" BackgroundColor="{Binding RightCornerBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightCorner}"/>
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-                    Text="{Binding RightCorner}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Right Wing Three -->
-                <Button Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding RightWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding RightWing}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding RightWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightWing}"/>
-                <Label Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" 
-                    Text="{Binding RightWing}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Top of the Key Three -->
-                <Button Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding TopKeyBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="2" Text="{Binding TopKey}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding TopKeyBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.TopKey}"/>
-                <Label Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" 
-                    Text="{Binding TopKey}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Left Wing Three -->
-                <Button Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding LeftWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding LeftWing}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding LeftWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftWing}"/>
-                <Label Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" 
-                    Text="{Binding LeftWing}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Left Corner Three -->
-                <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding LeftCornerBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding LeftCorner}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding LeftCornerBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftCorner}"/>
-                <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" 
-                    Text="{Binding LeftCorner}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Short Right Corner -->
-                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding ShortRightBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ShortRight}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding ShortRightBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.ShortRight}"/>
-                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
-                    Text="{Binding ShortRight}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Right Elbow -->
-                <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding RightElbowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Text="{Binding RightElbow}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding RightElbowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightElbow}"/>
-                <Label Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" 
-                    Text="{Binding RightElbow}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Free Throw -->
-                <Button Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding FreeThrowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding FreeThrow}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding FreeThrowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.FreeThrow}"/>
-                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" 
-                    Text="{Binding FreeThrow}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Left Elbow -->
-                <Button Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding LeftElbowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" Text="{Binding LeftElbow}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding LeftElbowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftElbow}"/>
-                <Label Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" 
-                    Text="{Binding LeftElbow}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- Short Left Corner -->
-                <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"  
-                    BackgroundColor="{Binding ShortLeftBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ShortLeft}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding ShortLeftBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.ShortLeft}"/>
-                <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
-                    Text="{Binding ShortLeft}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
 
                 <!-- In the Paint -->
-                <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"  
-                     BackgroundColor="{Binding PaintBackground}" Opacity=".8" Margin="2, 8, 2, 8"
+                <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Paint}" CornerRadius="35"
+                    TextColor="Black" BackgroundColor="{Binding PaintBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.Paint}"/>
-                <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" 
-                    Text="{Binding Paint}"
-                    FontSize="Small"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="Center"/>
             </Grid>
         </Grid>
     </ContentView>

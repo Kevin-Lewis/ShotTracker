@@ -52,7 +52,7 @@ namespace ShotTracker.ViewModels
                 {
                     return string.Empty;
                 }
-                return $"{Math.Round((double)(ShotEntries.Sum(item => item.Makes) / (double)ShotEntries.Sum(item => item.Makes + item.Misses)) * 100)}%";
+                return $"{ShotEntries.Sum(item => item.Makes)} / {ShotEntries.Sum(item => item.Makes + item.Misses)}";
             }
         }
 

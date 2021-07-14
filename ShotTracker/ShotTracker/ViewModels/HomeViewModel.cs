@@ -76,18 +76,18 @@ namespace ShotTracker.ViewModels
 
         private void SetZoneText()
         {
-            Paint = $"{ShotEntries.Where(o => o.Location == ShotLocation.Paint).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.Paint).Sum(item => item.Makes + item.Misses)}";
-            ShortLeft = $"{ShotEntries.Where(o => o.Location == ShotLocation.ShortLeft).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.ShortLeft).Sum(item => item.Makes + item.Misses)}";
-            LeftElbow = $"{ShotEntries.Where(o => o.Location == ShotLocation.LeftElbow).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.LeftElbow).Sum(item => item.Makes + item.Misses)}";
-            FreeThrow = $"{ShotEntries.Where(o => o.Location == ShotLocation.FreeThrow).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.FreeThrow).Sum(item => item.Makes + item.Misses)}";
-            RightElbow = $"{ShotEntries.Where(o => o.Location == ShotLocation.RightElbow).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.RightElbow).Sum(item => item.Makes + item.Misses)}";
-            ShortRight = $"{ShotEntries.Where(o => o.Location == ShotLocation.ShortRight).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.ShortRight).Sum(item => item.Makes + item.Misses)}";
-            LeftCorner = $"{ShotEntries.Where(o => o.Location == ShotLocation.LeftCorner).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.LeftCorner).Sum(item => item.Makes + item.Misses)}";
-            LeftWing = $"{ShotEntries.Where(o => o.Location == ShotLocation.LeftWing).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.LeftWing).Sum(item => item.Makes + item.Misses)}";
-            TopKey = $"{ShotEntries.Where(o => o.Location == ShotLocation.TopKey).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.TopKey).Sum(item => item.Makes + item.Misses)}";
-            RightWing = $"{ShotEntries.Where(o => o.Location == ShotLocation.RightWing).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.RightWing).Sum(item => item.Makes + item.Misses)}";
-            RightCorner = $"{ShotEntries.Where(o => o.Location == ShotLocation.RightCorner).Sum(item => item.Makes)}/{ShotEntries.Where(o => o.Location == ShotLocation.RightCorner).Sum(item => item.Makes + item.Misses)}";
-            
+            Paint = ShotEntries.Where(o => o.Location == ShotLocation.Paint).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.Paint).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.Paint).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            ShortLeft = ShotEntries.Where(o => o.Location == ShotLocation.ShortLeft).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.ShortLeft).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.ShortLeft).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            LeftElbow = ShotEntries.Where(o => o.Location == ShotLocation.LeftElbow).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.LeftElbow).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.LeftElbow).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            FreeThrow = ShotEntries.Where(o => o.Location == ShotLocation.FreeThrow).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.FreeThrow).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.FreeThrow).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            RightElbow = ShotEntries.Where(o => o.Location == ShotLocation.RightElbow).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.RightElbow).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.RightElbow).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            ShortRight = ShotEntries.Where(o => o.Location == ShotLocation.ShortRight).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.ShortRight).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.ShortRight).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            LeftCorner = ShotEntries.Where(o => o.Location == ShotLocation.LeftCorner).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.LeftCorner).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.LeftCorner).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            LeftWing = ShotEntries.Where(o => o.Location == ShotLocation.LeftWing).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.LeftWing).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.LeftWing).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            TopKey = ShotEntries.Where(o => o.Location == ShotLocation.TopKey).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.TopKey).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.TopKey).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            RightWing = ShotEntries.Where(o => o.Location == ShotLocation.RightWing).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.RightWing).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.RightWing).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+            RightCorner = ShotEntries.Where(o => o.Location == ShotLocation.RightCorner).ToList().Count > 0 ? $"{Math.Round((double)ShotEntries.Where(o => o.Location == ShotLocation.RightCorner).Sum(item => item.Makes) / (double)ShotEntries.Where(o => o.Location == ShotLocation.RightCorner).Sum(item => item.Makes + item.Misses) * 100)}%" : "-";
+
             OnPropertyChanged(nameof(Paint));
             OnPropertyChanged(nameof(ShortLeft));
             OnPropertyChanged(nameof(LeftElbow));
@@ -115,12 +115,9 @@ namespace ShotTracker.ViewModels
 
         private Color GetBackgroundColor(string text)
         {
-            double x = double.Parse(text.Split('/')[0]);
-            double y = double.Parse(text.Split('/')[1]);
-
-            if (y > 0)
+            if (text != "-")
             {
-                double percentage = (x / y) * 100;
+                double percentage = double.Parse(text.Trim('%'));
                 switch (percentage)
                 {
                     case var expression when percentage == 100:
