@@ -85,7 +85,7 @@ namespace ShotTracker.ViewModels
 
         private async void OnEditShotEntry(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewShotEntryPage));
+            await Shell.Current.GoToAsync($"{nameof(NewShotEntryPage)}?{nameof(NewShotEntryViewModel.LocationQueryString)}={(int)Location}&&{nameof(NewShotEntryViewModel.Makes)}={Makes}&&{nameof(NewShotEntryViewModel.Misses)}={Misses}&&{nameof(NewShotEntryViewModel.UpdateID)}={ID}");
         }
 
         private async void OnDeleteShotEntry(object obj)

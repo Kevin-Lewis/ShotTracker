@@ -2,18 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace ShotTracker.ViewModels
 {
     [QueryProperty(nameof(LocationQueryString), nameof(LocationQueryString))]
+    [QueryProperty(nameof(Makes), nameof(Makes))]
+    [QueryProperty(nameof(Misses), nameof(Misses))]
+    [QueryProperty(nameof(UpdateID), nameof(UpdateID))]
     public class NewShotEntryViewModel : BaseViewModel
     {
         private int _makes;
         private int _misses;
         private ShotLocation _location;
         private string _locationQueryString;
+
+        private int _updateID = -1;
 
         public NewShotEntryViewModel()
         {          
@@ -38,6 +44,12 @@ namespace ShotTracker.ViewModels
         {
             get => _misses;
             set => SetProperty(ref _misses, value);
+        }
+        
+        public int UpdateID
+        {
+            get => _updateID;
+            set => SetProperty(ref _updateID, value);
         }
 
         public ShotLocation Location
@@ -70,16 +82,31 @@ namespace ShotTracker.ViewModels
 
         private async void OnSave()
         {
-            ShotEntry newItem = new ShotEntry()
+            if (UpdateID == -1)
             {
-                Makes = Makes,
-                Misses = Misses,
-                Location = Location,
-                Date = DateTime.Now
-            };
-
-            await DataStore.AddShotEntryAsync(newItem);
+                ShotEntry newItem = new ShotEntry()
+                {
+                    Makes = Makes,
+                    Misses = Misses,
+                    Location = Location,
+                    Date = DateTime.Now
+                };
+                await DataStore.AddShotEntryAsync(newItem);
+            }
+            else
+            {
+                await Task.Run(() => UpdateShotEntry());
+            }               
             await Shell.Current.GoToAsync("..");
         }
+
+        private async void UpdateShotEntry()
+        {
+            ShotEntry entry = DataStore.GetShotEntryAsync(UpdateID).Result;
+            entry.Makes = Makes;
+            entry.Misses = Misses;
+            await DataStore.UpdateShotEntryAsync(entry);
+        }
+
     }
 }

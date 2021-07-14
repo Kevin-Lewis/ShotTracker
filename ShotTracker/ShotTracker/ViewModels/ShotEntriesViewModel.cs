@@ -29,6 +29,7 @@ namespace ShotTracker.ViewModels
             {
                 _shotEntries = value;
                 OnPropertyChanged(nameof(ShotEntries));
+                OnPropertyChanged(nameof(OverallPercentage));
             }
         }
         public string Location
@@ -42,6 +43,15 @@ namespace ShotTracker.ViewModels
                 }               
             }
         }
+
+        public string OverallPercentage
+        {
+            get
+            {
+                return $"{Math.Round((double)(ShotEntries.Sum(item => item.Makes) / (double)ShotEntries.Sum(item => item.Makes + item.Misses)) * 100)}%";
+            }
+        }
+
         public Command AddShotEntryCommand { get; set; }
         
         public void OnAppearing()

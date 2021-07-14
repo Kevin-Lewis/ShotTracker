@@ -13,7 +13,7 @@
         <ToolbarItem IconImageSource="icon_add.png" Command="{Binding AddShotEntryCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <DatePicker HorizontalOptions="CenterAndExpand" WidthRequest="100"></DatePicker>
+        <Label Text="{Binding OverallPercentage}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"></Label>
         <ListView ItemsSource="{Binding ShotEntries}" SelectedItem="{Binding SelectedShotEntry, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:ShotEntry">

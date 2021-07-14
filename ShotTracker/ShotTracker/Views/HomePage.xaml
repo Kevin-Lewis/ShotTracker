@@ -34,7 +34,7 @@
 
                 <!-- Right Corner Three -->
                 <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding RightCornerBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightCorner}"/>
                 <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                     Text="{Binding RightCorner}"
@@ -44,7 +44,7 @@
 
                 <!-- Right Wing Three -->
                 <Button Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding RightWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightWing}"/>
                 <Label Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" 
                     Text="{Binding RightWing}"
@@ -54,7 +54,7 @@
 
                 <!-- Top of the Key Three -->
                 <Button Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding TopKeyBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.TopKey}"/>
                 <Label Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" 
                     Text="{Binding TopKey}"
@@ -64,7 +64,7 @@
 
                 <!-- Left Wing Three -->
                 <Button Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding LeftWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftWing}"/>
                 <Label Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" 
                     Text="{Binding LeftWing}"
@@ -74,7 +74,7 @@
 
                 <!-- Left Corner Three -->
                 <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding LeftCornerBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftCorner}"/>
                 <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" 
                     Text="{Binding LeftCorner}"
@@ -84,7 +84,7 @@
 
                 <!-- Short Right Corner -->
                 <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding ShortRightBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.ShortRight}"/>
                 <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
                     Text="{Binding ShortRight}"
@@ -94,7 +94,7 @@
 
                 <!-- Right Elbow -->
                 <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding RightElbowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightElbow}"/>
                 <Label Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" 
                     Text="{Binding RightElbow}"
@@ -104,7 +104,7 @@
 
                 <!-- Free Throw -->
                 <Button Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding FreeThrowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.FreeThrow}"/>
                 <Label Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" 
                     Text="{Binding FreeThrow}"
@@ -114,7 +114,7 @@
 
                 <!-- Left Elbow -->
                 <Button Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding LeftElbowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftElbow}"/>
                 <Label Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" 
                     Text="{Binding LeftElbow}"
@@ -124,7 +124,7 @@
 
                 <!-- Short Left Corner -->
                 <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"  
-                    Opacity=".8" Margin="2, 8, 2, 8"
+                    BackgroundColor="{Binding ShortLeftBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.ShortLeft}"/>
                 <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
                     Text="{Binding ShortLeft}"
@@ -134,7 +134,7 @@
 
                 <!-- In the Paint -->
                 <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"  
-                     Opacity=".8" Margin="2, 8, 2, 8"
+                     BackgroundColor="{Binding PaintBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.Paint}"/>
                 <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" 
                     Text="{Binding Paint}"
