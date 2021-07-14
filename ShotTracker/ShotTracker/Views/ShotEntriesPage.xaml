@@ -7,17 +7,18 @@
              Title="{Binding Title}"
              x:Name="BrowseItemsPage"
              x:DataType="viewmodels:ShotEntriesViewModel"
+             BackgroundColor="#202020"
              >
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="icon_add.png" Command="{Binding AddShotEntryCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="{Binding OverallPercentage}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"></Label>
+        <Label Text="{Binding OverallPercentage}" HorizontalOptions="CenterAndExpand" TextColor="White" FontAttributes="Bold" FontSize="Large"></Label>
         <ListView ItemsSource="{Binding ShotEntries}" SelectedItem="{Binding SelectedShotEntry, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:ShotEntry">
-                    <TextCell Text="{Binding TextResult}" Detail="{Binding Date}" />
+                    <TextCell Text="{Binding TextResult}" TextColor="White" Detail="{Binding Date}" DetailColor="Gray" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

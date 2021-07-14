@@ -48,6 +48,10 @@ namespace ShotTracker.ViewModels
         {
             get
             {
+                if (ShotEntries.Count == 0)
+                {
+                    return string.Empty;
+                }
                 return $"{Math.Round((double)(ShotEntries.Sum(item => item.Makes) / (double)ShotEntries.Sum(item => item.Makes + item.Misses)) * 100)}%";
             }
         }

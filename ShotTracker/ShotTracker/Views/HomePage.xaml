@@ -4,7 +4,8 @@
              x:Class="ShotTracker.Views.HomePage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:ShotTracker.ViewModels"
-             xmlns:models="clr-namespace:ShotTracker.Models">
+             xmlns:models="clr-namespace:ShotTracker.Models"
+             BackgroundColor="#202020">
 
     <ContentView x:DataType="local:HomeViewModel">
         <Grid>

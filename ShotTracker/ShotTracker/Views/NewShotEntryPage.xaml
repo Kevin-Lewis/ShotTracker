@@ -5,16 +5,17 @@
              Shell.PresentationMode="ModalAnimated"
              Title="New Entry"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="#202020">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Label Text="Makes" FontSize="Medium" />
-            <Entry Text="{Binding Makes, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
-            <Label Text="Misses" FontSize="Medium" />
-            <Entry Text="{Binding Misses, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric"  />
+            <Label Text="Makes" TextColor="White" FontSize="Medium" />
+            <Entry Text="{Binding Makes, Mode=TwoWay}" TextColor="White" PlaceholderColor="White" FontSize="Medium" Keyboard="Numeric" />
+            <Label Text="Misses" TextColor="White" FontSize="Medium" />
+            <Entry Text="{Binding Misses, Mode=TwoWay}" TextColor="White" PlaceholderColor="White" FontSize="Medium" Keyboard="Numeric"  />
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Cancel" Command="{Binding CancelCommand}" BackgroundColor="{StaticResource Primary}"  HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}" BackgroundColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
