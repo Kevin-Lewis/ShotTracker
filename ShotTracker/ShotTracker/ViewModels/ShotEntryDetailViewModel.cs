@@ -1,4 +1,5 @@
 ﻿using ShotTracker.Models;
+using ShotTracker.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -14,6 +15,19 @@ namespace ShotTracker.ViewModels
         private int _misses;
         private ShotLocation _location;
         private DateTime _date;
+
+        private ShotEntryDetailPage _parent;
+
+        public ShotEntryDetailViewModel(ShotEntryDetailPage parent)
+        {
+            _parent = parent;
+
+            EditShotEntryCommand = new Command(OnEditShotEntry);
+            DeleteShotEntryCommand = new Command(OnDeleteShotEntry);
+        }
+
+        public Command EditShotEntryCommand { get; set; }
+        public Command DeleteShotEntryCommand { get; set; }
 
         public int Makes
         {
@@ -56,7 +70,7 @@ namespace ShotTracker.ViewModels
         {
             try
             {
-                var item = await DataStore.GetShotEntryAsync(_shotEntryId);
+                var item = await DataStore.GetShotEntryAsync(itemId);
                 ID = item.Id;
                 Makes = item.Makes;
                 Misses = item.Misses;
@@ -67,6 +81,28 @@ namespace ShotTracker.ViewModels
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+
+        private async void OnEditShotEntry(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(NewShotEntryPage));
+        }
+
+        private async void OnDeleteShotEntry(object obj)
+        {
+            bool deleteEntry = await _parent.DisplayAlert("Delete Entry", "Are you sure you want to permanently delete this entry?", "Yes", "No");
+
+            if (deleteEntry)
+            {
+                await Task.Run(() => DeleteShotEntry());
+                await Shell.Current.GoToAsync("..");
+            }
+        }
+
+        private async void DeleteShotEntry()
+        {
+            ShotEntry entry = DataStore.GetShotEntryAsync(ID).Result;
+            await DataStore.DeleteShotEntryAsync(entry);         
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ShotTracker.Views
         public ShotEntryDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ShotEntryDetailViewModel();
+            BindingContext = new ShotEntryDetailViewModel(this);
         }
     }
 }

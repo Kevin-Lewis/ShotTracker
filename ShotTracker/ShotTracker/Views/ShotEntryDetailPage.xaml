@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShotTracker.Views.ShotEntryDetailPage"
              Title="{Binding Title}">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_edit.png" Command="{Binding EditShotEntryCommand}" />
+        <ToolbarItem IconImageSource="icon_trash.png" Command="{Binding DeleteShotEntryCommand}" />
+    </ContentPage.ToolbarItems>
+    
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Makes:" FontSize="Medium" />
         <Label Text="{Binding Makes}" FontSize="Small"/>

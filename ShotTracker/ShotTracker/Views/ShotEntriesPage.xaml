@@ -10,7 +10,7 @@
              >
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddShotEntryCommand}" />
+        <ToolbarItem IconImageSource="icon_add.png" Command="{Binding AddShotEntryCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
         <DatePicker HorizontalOptions="CenterAndExpand" WidthRequest="100"></DatePicker>

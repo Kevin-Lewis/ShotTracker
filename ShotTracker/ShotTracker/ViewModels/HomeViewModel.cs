@@ -42,9 +42,6 @@ namespace ShotTracker.ViewModels
             Title = "Home";
             ShotEntries = new ObservableCollection<ShotEntry>();
             ZonePressedCommand = new Command<ShotLocation>(OnZoneSelected);
-
-            Task.Run(async () => await LoadItems());
-            
         }
 
         private async Task LoadItems()
@@ -100,11 +97,6 @@ namespace ShotTracker.ViewModels
             OnPropertyChanged(nameof(TopKey));
             OnPropertyChanged(nameof(RightWing));
             OnPropertyChanged(nameof(RightCorner));
-        }
-
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewShotEntryPage));
         }
 
         async void OnZoneSelected(ShotLocation location)

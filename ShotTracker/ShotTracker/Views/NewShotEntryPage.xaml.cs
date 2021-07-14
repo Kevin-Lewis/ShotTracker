@@ -10,8 +10,6 @@ namespace ShotTracker.Views
 {
     public partial class NewShotEntryPage : ContentPage
     {
-        public ShotEntry Item { get; set; }
-
         public NewShotEntryPage()
         {
             InitializeComponent();

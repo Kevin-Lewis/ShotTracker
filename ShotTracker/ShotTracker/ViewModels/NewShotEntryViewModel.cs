@@ -7,14 +7,16 @@ using Xamarin.Forms;
 
 namespace ShotTracker.ViewModels
 {
+    [QueryProperty(nameof(LocationQueryString), nameof(LocationQueryString))]
     public class NewShotEntryViewModel : BaseViewModel
     {
         private int _makes;
         private int _misses;
         private ShotLocation _location;
+        private string _locationQueryString;
 
         public NewShotEntryViewModel()
-        {
+        {          
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
@@ -42,6 +44,19 @@ namespace ShotTracker.ViewModels
         {
             get => _location;
             set => SetProperty(ref _location, value);
+        }
+
+        public string LocationQueryString
+        {
+            get => _locationQueryString;
+            set
+            {
+                if (_locationQueryString != value)
+                {
+                    _locationQueryString = value;
+                    _location = (ShotLocation)int.Parse(_locationQueryString);
+                }
+            }
         }
 
         public Command SaveCommand { get; }

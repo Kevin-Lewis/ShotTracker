@@ -38,8 +38,7 @@ namespace ShotTracker.ViewModels
             {               
                 if (_location != value)
                 {
-                    _location = value;
-                                     
+                    _location = value;                                    
                 }               
             }
         }
@@ -69,15 +68,15 @@ namespace ShotTracker.ViewModels
 
         private async void OnAddShotEntry(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewShotEntryPage));
+            await Shell.Current.GoToAsync($"{nameof(NewShotEntryPage)}?{nameof(NewShotEntryViewModel.LocationQueryString)}={Location}");
         }
 
-        async void OnShotEntrySelected(ShotEntry item)
+        async void OnShotEntrySelected(ShotEntry entry)
         {
-            if (item == null)
+            if (entry == null)
                 return;
 
-            await Shell.Current.GoToAsync($"{nameof(ShotEntryDetailPage)}?{nameof(ShotEntryDetailViewModel.ID)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(ShotEntryDetailPage)}?{nameof(ShotEntryDetailViewModel.ID)}={entry.Id}");
         }
     }
 }
