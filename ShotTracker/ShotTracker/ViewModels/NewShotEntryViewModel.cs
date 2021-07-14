@@ -57,7 +57,6 @@ namespace ShotTracker.ViewModels
         {
             ShotEntry newItem = new ShotEntry()
             {
-                Id = Guid.NewGuid().ToString(),
                 Makes = Makes,
                 Misses = Misses,
                 Location = Location,

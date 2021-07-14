@@ -25,7 +25,7 @@ namespace ShotTracker.Services
             return await App.Database.GetShotEntriesAsync();
         }
 
-        public async Task<ShotEntry> GetShotEntryAsync(string id)
+        public async Task<ShotEntry> GetShotEntryAsync(int id)
         {
             return await App.Database.GetShotEntryAsync(id);
         }

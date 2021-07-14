@@ -9,13 +9,11 @@ namespace ShotTracker.ViewModels
     [QueryProperty(nameof(ID), nameof(ID))]
     public class ShotEntryDetailViewModel : BaseViewModel
     {
-        private string _shotEntryId;
+        private int _shotEntryId;
         private int _makes;
         private int _misses;
         private ShotLocation _location;
         private DateTime _date;
-
-        public string Id { get; set; }
 
         public int Makes
         {
@@ -35,7 +33,7 @@ namespace ShotTracker.ViewModels
             set => SetProperty(ref _location, value);
         }
 
-        public string ID
+        public int ID
         {
             get
             {
@@ -54,12 +52,12 @@ namespace ShotTracker.ViewModels
             set => SetProperty(ref _date, value);
         }
 
-        public async void LoadItemId(string itemId)
+        public async void LoadItemId(int itemId)
         {
             try
             {
                 var item = await DataStore.GetShotEntryAsync(_shotEntryId);
-                Id = item.Id;
+                ID = item.Id;
                 Makes = item.Makes;
                 Misses = item.Misses;
                 Location = item.Location;

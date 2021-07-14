@@ -20,7 +20,7 @@ namespace ShotTracker.Data
             return database.Table<ShotEntry>().ToListAsync();
         }
 
-        public Task<ShotEntry> GetShotEntryAsync(string id)
+        public Task<ShotEntry> GetShotEntryAsync(int id)
         {
             return database.Table<ShotEntry>()
                             .Where(i => i.Id == id)

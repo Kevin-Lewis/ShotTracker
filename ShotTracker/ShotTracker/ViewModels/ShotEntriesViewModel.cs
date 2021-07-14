@@ -39,7 +39,7 @@ namespace ShotTracker.ViewModels
                 if (_location != value)
                 {
                     _location = value;
-                    Task.Run(() => ShotEntries = new ObservableCollection<ShotEntry>(DataStore.GetShotEntriesAsync(true).Result.Where(o => o.Location == (ShotLocation)int.Parse(_location))));                    
+                                     
                 }               
             }
         }
@@ -60,6 +60,10 @@ namespace ShotTracker.ViewModels
                 _selectedShotEntry = value;
                 OnShotEntrySelected(value);
                 OnPropertyChanged(nameof(SelectedShotEntry));
+                if (_selectedShotEntry is null)
+                {
+                    Task.Run(() => ShotEntries = new ObservableCollection<ShotEntry>(DataStore.GetShotEntriesAsync(true).Result.Where(o => o.Location == (ShotLocation)int.Parse(_location))));
+                }                
             }
         }
 

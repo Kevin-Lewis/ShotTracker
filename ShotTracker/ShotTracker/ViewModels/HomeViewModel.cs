@@ -39,7 +39,7 @@ namespace ShotTracker.ViewModels
 
         public HomeViewModel()
         {
-            Title = "Browse";
+            Title = "Home";
             ShotEntries = new ObservableCollection<ShotEntry>();
             ZonePressedCommand = new Command<ShotLocation>(OnZoneSelected);
 
@@ -72,6 +72,7 @@ namespace ShotTracker.ViewModels
         public void OnAppearing()
         {
             IsBusy = true;
+            Task.Run(async () => await LoadItems());
         }
 
         private void SetZoneText()
