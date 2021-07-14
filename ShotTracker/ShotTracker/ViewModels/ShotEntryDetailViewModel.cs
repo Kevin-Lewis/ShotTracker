@@ -26,6 +26,11 @@ namespace ShotTracker.ViewModels
             DeleteShotEntryCommand = new Command(OnDeleteShotEntry);
         }
 
+        public void OnAppearing()
+        {
+            LoadItemId(ID);
+        }
+
         public Command EditShotEntryCommand { get; set; }
         public Command DeleteShotEntryCommand { get; set; }
 
@@ -39,6 +44,14 @@ namespace ShotTracker.ViewModels
         {
             get => _misses;
             set => SetProperty(ref _misses, value);
+        }
+
+        public string TextResult
+        {
+            get
+            {
+                return $"{Makes}/{Makes + Misses}";
+            }
         }
 
         public ShotLocation Location
@@ -55,8 +68,12 @@ namespace ShotTracker.ViewModels
             }
             set
             {
-                _shotEntryId = value;
+                if (_shotEntryId == value)
+                {
+                    return;
+                }
                 LoadItemId(value);
+                _shotEntryId = value;
             }
         }
 
@@ -76,6 +93,7 @@ namespace ShotTracker.ViewModels
                 Misses = item.Misses;
                 Location = item.Location;
                 Date = item.Date;
+                OnPropertyChanged(nameof(TextResult));
             }
             catch (Exception)
             {

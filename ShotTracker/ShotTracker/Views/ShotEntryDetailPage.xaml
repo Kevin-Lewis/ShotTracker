@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:ShotTracker.ViewModels" x:DataType="viewmodels:ShotEntryDetailViewModel"
              x:Class="ShotTracker.Views.ShotEntryDetailPage"
              Title="{Binding Title}"
              BackgroundColor="#202020">
@@ -9,11 +10,10 @@
         <ToolbarItem IconImageSource="icon_trash.png" Command="{Binding DeleteShotEntryCommand}" />
     </ContentPage.ToolbarItems>
     
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Makes:" TextColor="White"  FontSize="Medium" />
-        <Label Text="{Binding Makes}" TextColor="White"  FontSize="Small"/>
-        <Label Text="Misses:" TextColor="White"  FontSize="Medium" />
-        <Label Text="{Binding Misses}" TextColor="White"  FontSize="Small"/>
+    <StackLayout>
+        <Label Text="{Binding TextResult}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+        <Label Text="{Binding Date}" TextColor="Gray"  FontSize="Medium" HorizontalTextAlignment="Center" />
+        
     </StackLayout>
     
 </ContentPage>

@@ -14,7 +14,9 @@
         <ToolbarItem IconImageSource="icon_add.png" Command="{Binding AddShotEntryCommand}" />
     </ContentPage.ToolbarItems>
     <StackLayout>
+        <BoxView Style="{StaticResource Separator}" />
         <Label Text="{Binding OverallPercentage}" HorizontalOptions="CenterAndExpand" TextColor="White" FontAttributes="Bold" FontSize="Large"></Label>
+        <BoxView Style="{StaticResource Separator}" />
         <ListView ItemsSource="{Binding ShotEntries}" SelectedItem="{Binding SelectedShotEntry, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:ShotEntry">
