@@ -9,7 +9,7 @@
 
     <ContentView x:DataType="local:HomeViewModel">
         <Grid>
-            <Image Source="court.png" Aspect="AspectFill"></Image>
+            <Image Source="court.jpg" Aspect="AspectFill"></Image>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -44,30 +44,30 @@
                     HorizontalOptions="Center"/>
 
                 <!-- Right Wing Three -->
-                <Button Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2"  
+                <Button Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"  
                     BackgroundColor="{Binding RightWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.RightWing}"/>
-                <Label Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" 
+                <Label Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" 
                     Text="{Binding RightWing}"
                     FontSize="Small"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"/>
 
                 <!-- Top of the Key Three -->
-                <Button Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2"  
+                <Button Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2"  
                     BackgroundColor="{Binding TopKeyBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.TopKey}"/>
-                <Label Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" 
+                <Label Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" 
                     Text="{Binding TopKey}"
                     FontSize="Small"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"/>
 
                 <!-- Left Wing Three -->
-                <Button Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2"  
+                <Button Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2"  
                     BackgroundColor="{Binding LeftWingBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.LeftWing}"/>
-                <Label Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" 
+                <Label Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" 
                     Text="{Binding LeftWing}"
                     FontSize="Small"
                     VerticalOptions="CenterAndExpand"
@@ -104,10 +104,10 @@
                     HorizontalOptions="Center"/>
 
                 <!-- Free Throw -->
-                <Button Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"  
+                <Button Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2"  
                     BackgroundColor="{Binding FreeThrowBackground}" Opacity=".8" Margin="2, 8, 2, 8"
                     Command="{Binding ZonePressedCommand}" CommandParameter="{x:Static models:ShotLocation.FreeThrow}"/>
-                <Label Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" 
+                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" 
                     Text="{Binding FreeThrow}"
                     FontSize="Small"
                     VerticalOptions="CenterAndExpand"

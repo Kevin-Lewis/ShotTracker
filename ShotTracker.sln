@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShotTracker.Android", "Shot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShotTracker.iOS", "ShotTracker\ShotTracker.iOS\ShotTracker.iOS.csproj", "{8AC1E62F-A456-49FE-9D58-94301638349E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShotTracker", "ShotTracker\ShotTracker\ShotTracker.csproj", "{5F47FABA-65EA-41E5-AF02-B73B9186B187}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShotTracker", "ShotTracker\ShotTracker\ShotTracker.csproj", "{5F47FABA-65EA-41E5-AF02-B73B9186B187}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -149,7 +149,7 @@ namespace ShotTracker.ViewModels
             }
             else
             {
-                return Color.FromHex("#202020");
+                return Color.LightGray;
             }
 
         }
