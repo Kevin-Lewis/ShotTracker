@@ -90,7 +90,7 @@ namespace ShotTracker.ViewModels
             if (entry == null)
                 return;
 
-            await Shell.Current.GoToAsync($"{nameof(ShotEntryDetailPage)}?{nameof(ShotEntryDetailViewModel.ID)}={entry.Id}");
+            await Shell.Current.GoToAsync($"{nameof(ShotEntryDetailPage)}?{nameof(ShotEntryDetailViewModel.ID)}={entry.ID}");
         }
     }
 }

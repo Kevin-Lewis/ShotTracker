@@ -6,7 +6,7 @@ namespace ShotTracker.Models
     public class ShotEntry
     {
         [PrimaryKey][AutoIncrement]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public int Makes { get; set; }
         public int Misses { get; set; }
         public string TextResult

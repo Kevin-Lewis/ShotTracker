@@ -14,6 +14,7 @@ namespace ShotTracker
             Routing.RegisterRoute(nameof(ShotEntriesPage), typeof(ShotEntriesPage));
             Routing.RegisterRoute(nameof(ShotEntryDetailPage), typeof(ShotEntryDetailPage));
             Routing.RegisterRoute(nameof(NewShotEntryPage), typeof(NewShotEntryPage));
+            Routing.RegisterRoute(nameof(FilterShotDataPage), typeof(FilterShotDataPage));
         }
 
     }

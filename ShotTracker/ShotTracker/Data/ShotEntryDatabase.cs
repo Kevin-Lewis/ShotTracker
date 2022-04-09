@@ -13,6 +13,7 @@ namespace ShotTracker.Data
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<ShotEntry>().Wait();
+            database.CreateTableAsync<FilterSetting>().Wait();
         }
 
         public Task<List<ShotEntry>> GetShotEntriesAsync()
@@ -23,8 +24,23 @@ namespace ShotTracker.Data
         public Task<ShotEntry> GetShotEntryAsync(int id)
         {
             return database.Table<ShotEntry>()
-                            .Where(i => i.Id == id)
+                            .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
+        }
+        public Task<FilterSetting> GetFilterSettingAsync(int id)
+        {
+            return database.Table<FilterSetting>()
+                            .Where(i => i.ID == id)
+                            .FirstOrDefaultAsync();
+        }
+        public Task<int> SaveShotDataFilter(FilterSetting setting)
+        {
+            return database.InsertAsync(setting);
+        }
+
+        public Task<int> UpdateShotDataFilter(FilterSetting setting)
+        {
+            return database.UpdateAsync(setting);
         }
 
         public Task<int> SaveShotEntryAsync(ShotEntry entry)

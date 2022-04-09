@@ -1,23 +1,18 @@
 ﻿using ShotTracker.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ShotTracker.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class FilterShotDataPage : ContentPage
     {
-        HomeViewModel _viewModel;
-        public HomePage()
+        FilterShotDataViewModel _viewModel;
+        public FilterShotDataPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new HomeViewModel();
+            BindingContext = _viewModel = new FilterShotDataViewModel();
         }
 
         protected override void OnAppearing()

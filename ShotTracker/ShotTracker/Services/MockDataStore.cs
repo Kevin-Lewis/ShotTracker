@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ShotTracker.Services
 {
-    public class MockDataStore : IDataStore<ShotEntry>
+    public class MockDataStore : IDataStore
     {
         readonly List<ShotEntry> shotEntries;
+        readonly FilterSetting setting;
 
         public MockDataStore()
         {
@@ -26,6 +27,8 @@ namespace ShotTracker.Services
                 new ShotEntry { Makes = 5, Misses = 2, Location = (ShotLocation)9, Date=DateTime.Now },
                 new ShotEntry { Makes = 40, Misses = 42, Location = (ShotLocation)10, Date=DateTime.Now }
             };
+
+            setting = new FilterSetting() { ID = 1, Value = "Today" };
         }
 
         public async Task<bool> AddShotEntryAsync(ShotEntry item)
@@ -37,7 +40,7 @@ namespace ShotTracker.Services
 
         public async Task<bool> UpdateShotEntryAsync(ShotEntry item)
         {
-            var oldItem = shotEntries.Where((ShotEntry arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = shotEntries.Where((ShotEntry arg) => arg.ID == item.ID).FirstOrDefault();
             shotEntries.Remove(oldItem);
             shotEntries.Add(item);
 
@@ -52,12 +55,27 @@ namespace ShotTracker.Services
 
         public async Task<ShotEntry> GetShotEntryAsync(int id)
         {
-            return await Task.FromResult(shotEntries.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(shotEntries.FirstOrDefault(s => s.ID == id));
         }
 
         public async Task<IEnumerable<ShotEntry>> GetShotEntriesAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(shotEntries);
+        }
+
+        public async Task<bool> AddFilterSettingAsync(FilterSetting item)
+        {
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> UpdateFilterSettingAsync(FilterSetting item)
+        {
+            return await Task.FromResult(true);
+        }
+
+        public async Task<FilterSetting> GetFilterSettingAsync(int id)
+        {
+            return await Task.FromResult(setting);
         }
     }
 }

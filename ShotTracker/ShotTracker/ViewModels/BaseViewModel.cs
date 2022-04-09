@@ -10,7 +10,7 @@ namespace ShotTracker.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<ShotEntry> DataStore => DependencyService.Get<IDataStore<ShotEntry>>();
+        public IDataStore DataStore => DependencyService.Get<IDataStore>();
 
         bool isBusy = false;
         public bool IsBusy

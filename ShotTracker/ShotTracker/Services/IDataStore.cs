@@ -1,15 +1,19 @@
-﻿using System;
+﻿using ShotTracker.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ShotTracker.Services
 {
-    public interface IDataStore<T>
+    public interface IDataStore
     {
-        Task<bool> AddShotEntryAsync(T item);
-        Task<bool> UpdateShotEntryAsync(T item);
-        Task<bool> DeleteShotEntryAsync(T item);
-        Task<T> GetShotEntryAsync(int id);
-        Task<IEnumerable<T>> GetShotEntriesAsync(bool forceRefresh = false);
+        Task<bool> AddShotEntryAsync(ShotEntry item);
+        Task<bool> UpdateShotEntryAsync(ShotEntry item);
+        Task<FilterSetting> GetFilterSettingAsync(int id);
+        Task<bool> AddFilterSettingAsync(FilterSetting setting);
+        Task<bool> UpdateFilterSettingAsync(FilterSetting setting);
+        Task<bool> DeleteShotEntryAsync(ShotEntry item);
+        Task<ShotEntry> GetShotEntryAsync(int id);
+        Task<IEnumerable<ShotEntry>> GetShotEntriesAsync(bool forceRefresh = false);
     }
 }

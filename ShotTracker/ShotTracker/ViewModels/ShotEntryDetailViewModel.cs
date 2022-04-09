@@ -88,7 +88,7 @@ namespace ShotTracker.ViewModels
             try
             {
                 var item = await DataStore.GetShotEntryAsync(itemId);
-                ID = item.Id;
+                ID = item.ID;
                 Makes = item.Makes;
                 Misses = item.Misses;
                 Location = item.Location;
@@ -120,7 +120,7 @@ namespace ShotTracker.ViewModels
         private async void DeleteShotEntry()
         {
             ShotEntry entry = DataStore.GetShotEntryAsync(ID).Result;
-            await DataStore.DeleteShotEntryAsync(entry);         
+            await DataStore.DeleteShotEntryAsync(entry);
         }
     }
 }
