@@ -16,9 +16,11 @@ namespace ShotTracker.ViewModels
         public ChartViewModel()
         {
             Title = "Analytics";
-            Task.Run(() => LoadShotEntries());
-            
+            ShootingProgressChart = new LineChart();
+            Task.Run(() => LoadShotEntries());         
         }
+
+        public LineChart ShootingProgressChart { get; set; }
 
         public List<ShotEntry> ShotEntries
         {
@@ -33,7 +35,7 @@ namespace ShotTracker.ViewModels
             }
         }
 
-        public List<Entry> GetChartProgressDailyEntries()
+        public List<Entry> GetShootingProgressChartData()
         {
             DateTime day1 = new DateTime(DateTime.Today.Ticks);
             float val1 = (float)(ShotEntries.Where(o => (o.Date >= day1)).ToList().Count > 0 ? Math.Round((float)ShotEntries.Where(o => o.Date >= day1).Sum(item => item.Makes) / (float)ShotEntries.Where(o => o.Location == ShotLocation.Paint).Sum(item => item.Makes + item.Misses) * 100) : 0);
@@ -77,12 +79,13 @@ namespace ShotTracker.ViewModels
         {
             try
             {
-                ShotEntries.Clear();
+                ShotEntries = new List<ShotEntry>();
                 var items = await DataStore.GetShotEntriesAsync(true);
                 foreach (var item in items)
                 {
                     ShotEntries.Add(item);
                 }
+                ShootingProgressChart.Entries = GetShootingProgressChartData();
             }
             catch (Exception ex)
             {

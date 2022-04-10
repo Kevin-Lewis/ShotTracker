@@ -18,7 +18,6 @@ namespace ShotTracker.Views
             InitializeComponent();
 
             BindingContext = _viewModel = new ChartViewModel();
-            ChartProgressDaily.Chart = new LineChart() { Entries = _viewModel.GetChartProgressDailyEntries() };
         }       
     }
 }
