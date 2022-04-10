@@ -31,6 +31,9 @@
                             <x:String>Last 90 Days</x:String>
                             <x:String>Last 30 Days</x:String>
                             <x:String>Last 7 Days</x:String>
+                            <x:String>This Year</x:String>
+                            <x:String>This Month</x:String>
+                            <x:String>This Week</x:String>
                             <x:String>Today</x:String>
                         </x:Array>
                     </Picker.ItemsSource>

@@ -52,7 +52,9 @@ namespace ShotTracker.ViewModels
             try
             {
                 ShotEntries.Clear();
-                var items = await DataStore.GetShotEntriesAsync(true);
+                FilterSetting setting = await DataStore.GetFilterSettingAsync(1);
+                if (setting is null) { setting = new FilterSetting() { ID = 1, Value = "All" };}
+                var items = (await DataStore.GetShotEntriesAsync(true)).Where(x => x.Date >= ReturnFilterDate(setting));
                 foreach (var item in items)
                 {
                     ShotEntries.Add(item);
@@ -68,6 +70,41 @@ namespace ShotTracker.ViewModels
                 IsBusy = false;
             }
         }
+
+        private DateTime ReturnFilterDate(FilterSetting setting)
+        {
+            DateTime result = new DateTime();
+
+            switch (setting.Value)
+            {
+                case "All":
+                    result = DateTime.MinValue;
+                    break;
+                case "Last 90 Days":
+                    result = DateTime.Today.AddDays(-89);
+                    break;
+                case "Last 30 Days":
+                    result = DateTime.Today.AddDays(-29);
+                    break;
+                case "Last 7 Days":
+                    result = DateTime.Today.AddDays(-6);
+                    break;
+                case "This Year":
+                    result = DateTime.Parse($"1-1-{DateTime.Today.Year}");
+                    break;
+                case "This Month":
+                    result = DateTime.Parse($"{DateTime.Today.Month}-1-{DateTime.Today.Year}");
+                    break;
+                case "This Week":
+                    result = DateTime.Parse($"{DateTime.Today.Month}-{DateTime.Today.Day + (0 - DateTime.Today.DayOfWeek)}-{DateTime.Today.Year}");
+                    break;
+                case "Today":
+                    result = DateTime.Today;
+                    break;
+            }
+
+            return result;
+        } 
 
         public void OnAppearing()
         {
