@@ -159,25 +159,45 @@ namespace ShotTracker.ViewModels
                 switch (percentage)
                 {
                     case var expression when percentage == 100:
-                        return Color.FromHex("#087300");
+                        return Color.FromHex("#00FF00");
+                    case var expression when percentage > 95:
+                        return Color.FromHex("#12FF00");
                     case var expression when percentage > 90:
-                        return Color.FromHex("#459600");
+                        return Color.FromHex("#24FF00");
+                    case var expression when percentage > 85:
+                        return Color.FromHex("#47FF00");
                     case var expression when percentage > 80:
-                        return Color.FromHex("#82B900");
+                        return Color.FromHex("#6AFF00");
+                    case var expression when percentage > 75:
+                        return Color.FromHex("#7CFF00");
                     case var expression when percentage > 70:
-                        return Color.FromHex("#BEDC00");
+                        return Color.FromHex("#9FFF00");
+                    case var expression when percentage > 65:
+                        return Color.FromHex("#B0FF00");
                     case var expression when percentage > 60:
-                        return Color.FromHex("#FBFF00");
+                        return Color.FromHex("#D4FF00");
+                    case var expression when percentage > 55:
+                        return Color.FromHex("#E5FF00");
                     case var expression when percentage > 50:
-                        return Color.FromHex("#FDD100");
+                        return Color.FromHex("#F7FF00");
+                    case var expression when percentage > 45:
+                        return Color.FromHex("#FFE400");
                     case var expression when percentage > 40:
-                        return Color.FromHex("#FFA200");
+                        return Color.FromHex("#FFC100");
+                    case var expression when percentage > 35:
+                        return Color.FromHex("#FFAF00");
                     case var expression when percentage > 30:
-                        return Color.FromHex("#FF7A00");
+                        return Color.FromHex("#FF8C00");
+                    case var expression when percentage > 25:
+                        return Color.FromHex("#FF7B00");
                     case var expression when percentage > 20:
-                        return Color.FromHex("#FF5100");
+                        return Color.FromHex("#FF5700");
+                    case var expression when percentage > 15:
+                        return Color.FromHex("#FF4600");
                     case var expression when percentage > 10:
-                        return Color.FromHex("#FF2900");
+                        return Color.FromHex("#FF2300");
+                    case var expression when percentage > 5:
+                        return Color.FromHex("#FF1100");
                     default:
                         return Color.FromHex("#FF0000");
                 }
