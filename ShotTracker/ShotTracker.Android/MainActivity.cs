@@ -13,7 +13,6 @@ namespace ShotTracker.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             Platform.Init(this, savedInstanceState);
         }
     }
