@@ -3,8 +3,8 @@ using ShotTracker.Services;
 using ShotTracker.Views;
 using System;
 using System.IO;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
 
 namespace ShotTracker
 {

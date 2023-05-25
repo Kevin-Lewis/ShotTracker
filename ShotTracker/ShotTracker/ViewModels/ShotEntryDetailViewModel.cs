@@ -3,7 +3,8 @@ using ShotTracker.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
 
 namespace ShotTracker.ViewModels
 {
