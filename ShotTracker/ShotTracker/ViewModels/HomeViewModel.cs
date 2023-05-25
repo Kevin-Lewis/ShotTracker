@@ -16,17 +16,17 @@ namespace ShotTracker.ViewModels
         public Command ZonePressedCommand { get; }
         public ShotLocation Location { get; }
         public Command FilterShotDataCommand { get; set; }
-        public string Paint { get; set; }
-        public string ShortLeft { get; set; }
-        public string LeftElbow { get; set; }
-        public string FreeThrow { get; set; }
-        public string RightElbow { get; set; }
-        public string ShortRight { get; set; }
-        public string LeftCorner { get; set; }
-        public string LeftWing { get; set; }
-        public string TopKey { get; set; }
-        public string RightWing { get; set; }
-        public string RightCorner { get; set; }
+        public string Paint { get; set; } = "-";
+        public string ShortLeft { get; set; } = "-";
+        public string LeftElbow { get; set; } = "-";
+        public string FreeThrow { get; set; } = "-";
+        public string RightElbow { get; set; } = "-";
+        public string ShortRight { get; set; } = "-";
+        public string LeftCorner { get; set; } = "-";
+        public string LeftWing { get; set; } = "-";
+        public string TopKey { get; set; } = "-";
+        public string RightWing { get; set; } = "-";
+        public string RightCorner { get; set; } = "-";
 
         public Color PaintBackground { get { return GetBackgroundColor(Paint); } }
         public Color ShortLeftBackground { get { return GetBackgroundColor(ShortLeft); } }
@@ -205,9 +205,8 @@ namespace ShotTracker.ViewModels
             }
             else
             {
-                return Color.LightGray;
+                return Color.FromHex("#D3D3D3");
             }
-
         }
 
         private async void OnFilterShotData(object obj)

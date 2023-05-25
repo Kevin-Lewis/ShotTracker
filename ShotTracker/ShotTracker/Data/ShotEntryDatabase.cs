@@ -11,9 +11,16 @@ namespace ShotTracker.Data
 
         public ShotEntryDatabase(string dbPath)
         {
-            database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<ShotEntry>().Wait();
-            database.CreateTableAsync<FilterSetting>().Wait();
+            try
+            {
+                database = new SQLiteAsyncConnection(dbPath);
+                database.CreateTableAsync<ShotEntry>().Wait();
+                database.CreateTableAsync<FilterSetting>().Wait();
+            }
+            catch(Exception ex) 
+            {
+
+            }           
         }
 
         public Task<List<ShotEntry>> GetShotEntriesAsync()

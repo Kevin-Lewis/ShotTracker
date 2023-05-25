@@ -18,7 +18,14 @@ namespace ShotTracker
             {
                 if (database == null)
                 {
-                    database = new ShotEntryDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ShotEntries.db3"));
+                    try
+                    {
+                        database = new ShotEntryDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ShotEntries.db3"));
+                    }
+                    catch(Exception ex)
+                    {
+                        
+                    }
                 }
                 return database;
             }
