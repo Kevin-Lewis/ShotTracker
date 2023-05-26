@@ -16,6 +16,7 @@ namespace ShotTracker.ViewModels
         public Command ZonePressedCommand { get; }
         public ShotLocation Location { get; }
         public Command FilterShotDataCommand { get; set; }
+        public Command AppRatingCommand { get; set; }
         public string Paint { get; set; } = "-";
         public string ShortLeft { get; set; } = "-";
         public string LeftElbow { get; set; } = "-";
@@ -45,6 +46,7 @@ namespace ShotTracker.ViewModels
             Title = "Home";
             ShotEntries = new ObservableCollection<ShotEntry>();
             FilterShotDataCommand = new Command(OnFilterShotData);
+            AppRatingCommand = new Command(OnAppRating);
             ZonePressedCommand = new Command<ShotLocation>(OnZoneSelected);
         }
 
@@ -212,6 +214,11 @@ namespace ShotTracker.ViewModels
         private async void OnFilterShotData(object obj)
         {
             await Shell.Current.GoToAsync($"{nameof(FilterShotDataPage)}");
+        }
+
+        private async void OnAppRating(object obj)
+        {
+
         }
 
         async void OnZoneSelected(ShotLocation location)

@@ -12,6 +12,7 @@
     </ContentPage.Behaviors>
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="icon_filter.png" Command="{Binding FilterShotDataCommand}" />
+        <ToolbarItem IconImageSource="Images/rating.png" Command="{Binding FilterShotDataCommand}" />
     </ContentPage.ToolbarItems>
     <ContentView x:DataType="local:HomeViewModel">
         <Grid>
