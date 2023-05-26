@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
+using Plugin.StoreReview;
 
 namespace ShotTracker.ViewModels
 {
@@ -218,7 +219,7 @@ namespace ShotTracker.ViewModels
 
         private async void OnAppRating(object obj)
         {
-
+            await CrossStoreReview.Current.RequestReview(false);
         }
 
         async void OnZoneSelected(ShotLocation location)
