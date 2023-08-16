@@ -15,8 +15,8 @@
     </ContentPage.ToolbarItems>
     
     <StackLayout>
-        <Label Text="{Binding TextResult}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
-        <Label Text="{Binding Date}" TextColor="Gray"  FontSize="Medium" HorizontalTextAlignment="Center" />
+        <Label Text="{Binding TextResult}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+        <Label Text="{Binding Date}" TextColor="Gray"  FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
         
     </StackLayout>
     

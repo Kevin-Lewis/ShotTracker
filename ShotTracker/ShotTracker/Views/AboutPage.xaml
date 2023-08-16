@@ -26,7 +26,10 @@
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="0">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Developed By Kevin Lewis" TextColor="White" FontSize="Title" HorizontalTextAlignment="Center"/>
+                <Label Text="Developed By Kevin Lewis" 
+                   TextColor="White" 
+                   FontSize="Title" 
+                   HorizontalOptions="Center" />
             </StackLayout>
         </ScrollView>
     </Grid>
