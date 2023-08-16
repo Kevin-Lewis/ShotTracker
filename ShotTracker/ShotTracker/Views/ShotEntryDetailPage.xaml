@@ -13,11 +13,9 @@
         <ToolbarItem IconImageSource="icon_edit.png" Command="{Binding EditShotEntryCommand}" />
         <ToolbarItem IconImageSource="icon_trash.png" Command="{Binding DeleteShotEntryCommand}" />
     </ContentPage.ToolbarItems>
-    
+
     <StackLayout>
         <Label Text="{Binding TextResult}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
         <Label Text="{Binding Date}" TextColor="Gray"  FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-        
     </StackLayout>
-    
 </ContentPage>
