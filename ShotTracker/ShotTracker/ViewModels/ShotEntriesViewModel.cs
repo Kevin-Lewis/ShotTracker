@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
+using Plugin.Maui.AppRating;
+using ShotTracker.Services;
 
 namespace ShotTracker.ViewModels
 {
@@ -16,11 +18,28 @@ namespace ShotTracker.ViewModels
         private ObservableCollection<ShotEntry> _shotEntries;
         private ShotEntry _selectedShotEntry;
         private string _location;
+        private int _activeEntriesCount;
+        private readonly IAppRating _appRating;
+        private readonly IDispatcherService _dispatcherService;
 
-        public ShotEntriesViewModel()
+        public ShotEntriesViewModel(IAppRating appRating, IDispatcherService dispatcherService)
         {
+            _appRating = appRating;
+            _dispatcherService = dispatcherService;
+
             AddShotEntryCommand = new Command(OnAddShotEntry);
             ShotEntries = new ObservableCollection<ShotEntry>();
+        }
+
+        public void OnAppearing()
+        {
+            Title = "Shot Entry";
+            IsBusy = true;
+            SelectedShotEntry = null;           
+        }
+        public void OnDisappearing()
+        {
+            Task.Run(async () => await CheckAndPromptForReviewAsync());
         }
 
         public ObservableCollection<ShotEntry> ShotEntries
@@ -59,13 +78,6 @@ namespace ShotTracker.ViewModels
 
         public Command AddShotEntryCommand { get; set; }
         
-        public void OnAppearing()
-        {
-            Title = "Shot Entry";
-            IsBusy = true;
-            SelectedShotEntry = null;
-        }
-
         public ShotEntry SelectedShotEntry
         {
             get => _selectedShotEntry;
@@ -86,12 +98,36 @@ namespace ShotTracker.ViewModels
             await Shell.Current.GoToAsync($"{nameof(NewShotEntryPage)}?{nameof(NewShotEntryViewModel.LocationQueryString)}={Location}");
         }
 
-        async void OnShotEntrySelected(ShotEntry entry)
+        private async void OnShotEntrySelected(ShotEntry entry)
         {
             if (entry == null)
                 return;
 
             await Shell.Current.GoToAsync($"{nameof(ShotEntryDetailPage)}?{nameof(ShotEntryDetailViewModel.ID)}={entry.ID}");
+        }
+
+        private async Task CheckAndPromptForReviewAsync()
+        {
+            var userData = await DataStore.GetUserDataAsync();
+            if (userData.ReviewShown)
+                return;
+
+            _activeEntriesCount = ShotEntries.Count;
+
+            if (_activeEntriesCount >= 5)
+            {
+                userData.ReviewShown = true;
+                await DataStore.SaveOrUpdateUserDataAsync(userData);
+                await RateAppAsync();               
+            }
+        }
+
+        private async Task RateAppAsync()
+        {
+            await _dispatcherService.DispatchAsync(async () =>
+            {
+                await _appRating.PerformInAppRateAsync();
+            });
         }
     }
 }

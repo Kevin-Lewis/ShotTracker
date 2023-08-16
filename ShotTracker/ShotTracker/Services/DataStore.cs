@@ -51,5 +51,34 @@ namespace ShotTracker.Services
             await App.Database.UpdateShotEntryAsync(item);
             return await Task.FromResult(true);
         }
+
+        public async Task<UserData> GetUserDataAsync()
+        {
+            return await App.Database.GetUserDataAsync();
+        }
+
+        public async Task<bool> AddUserDataAsync(UserData item)
+        {
+            await App.Database.SaveUserDataAsync(item);
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> UpdateUserDataAsync(UserData item)
+        {
+            await App.Database.UpdateUserDataAsync(item);
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> DeleteUserDataAsync(UserData item)
+        {
+            await App.Database.DeleteUserDataAsync(item);
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> SaveOrUpdateUserDataAsync(UserData item)
+        {
+            await App.Database.SaveOrUpdateUserDataAsync(item);
+            return await Task.FromResult(true);
+        }
     }
 }

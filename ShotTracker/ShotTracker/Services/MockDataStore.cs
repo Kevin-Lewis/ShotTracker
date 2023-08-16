@@ -77,5 +77,30 @@ namespace ShotTracker.Services
         {
             return await Task.FromResult(setting);
         }
+
+        public Task<UserData> GetUserDataAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AddUserDataAsync(UserData item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateUserDataAsync(UserData item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteUserDataAsync(UserData item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SaveOrUpdateUserDataAsync(UserData item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

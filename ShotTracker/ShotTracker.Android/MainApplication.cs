@@ -4,7 +4,6 @@ using Android.Runtime;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using ShotTracker.Services;
-using Plugin.StoreReview;
 using Xamarin.Google.Crypto.Tink.Shaded.Protobuf;
 
 namespace ShotTracker.Android

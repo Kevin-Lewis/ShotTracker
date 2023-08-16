@@ -1,5 +1,7 @@
-﻿
-using CommunityToolkit.Maui;
+﻿using CommunityToolkit.Maui;
+using Plugin.Maui.AppRating;
+using ShotTracker.Services;
+using ShotTracker.Views;
 
 namespace ShotTracker;
 
@@ -11,7 +13,9 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
 			.UseMauiCommunityToolkit();
-
-		return builder.Build();
+        builder.Services.AddSingleton<IDispatcherService, DispatcherService>();
+        builder.Services.AddTransient<ShotEntriesPage>();
+        builder.Services.AddSingleton<IAppRating>(AppRating.Default);
+        return builder.Build();
 	}
 }
