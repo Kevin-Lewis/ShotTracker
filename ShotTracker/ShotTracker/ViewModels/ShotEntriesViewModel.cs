@@ -19,6 +19,8 @@ namespace ShotTracker.ViewModels
         private ShotEntry _selectedShotEntry;
         private string _location;
         private int _activeEntriesCount;
+        private bool _shotAdd = false;
+
         private readonly IAppRating _appRating;
         private readonly IDispatcherService _dispatcherService;
 
@@ -35,7 +37,8 @@ namespace ShotTracker.ViewModels
         {
             Title = "Shot Entry";
             IsBusy = true;
-            SelectedShotEntry = null;           
+            SelectedShotEntry = null;
+            _shotAdd = false;
         }
         public void OnDisappearing()
         {
@@ -95,6 +98,7 @@ namespace ShotTracker.ViewModels
 
         private async void OnAddShotEntry(object obj)
         {
+            _shotAdd = true;
             await Shell.Current.GoToAsync($"{nameof(NewShotEntryPage)}?{nameof(NewShotEntryViewModel.LocationQueryString)}={Location}");
         }
 
@@ -109,10 +113,10 @@ namespace ShotTracker.ViewModels
         private async Task CheckAndPromptForReviewAsync()
         {
             var userData = await DataStore.GetUserDataAsync();
-            if (userData.ReviewShown)
+            if (userData.ReviewShown || _shotAdd)
                 return;
 
-            _activeEntriesCount = ShotEntries.Count;
+            _activeEntriesCount = (await DataStore.GetShotEntriesAsync()).ToList().Count;
 
             if (_activeEntriesCount >= 5)
             {
