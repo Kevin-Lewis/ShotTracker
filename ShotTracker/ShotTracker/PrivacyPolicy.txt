@@ -1,1 +1,13 @@
-﻿Privacy Policy for Shot Tracker
+This Privacy Policy describes the information that we, Shot Tracker, collect from users of the Shot Tracker app and how we use that information.
+
+1. Information We Collect
+
+At present, we do not collect any personal or sensitive data from users of the Shot Tracker app. The app may store shot data that you save within the app, but this information is stored only on your device and is not transmitted or stored elsewhere.
+
+2. How We Use the Information
+
+As we do not currently collect any information, we do not use or share any information with third parties. The shot data you save within the app is accessible only to you on your device.
+
+3. Changes to This Policy
+
+If we decide to collect data in the future, or make any changes to this Privacy Policy, we will notify users through updates to the Shot Tracker app and update this policy accordingly.
